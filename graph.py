@@ -54,6 +54,7 @@ for a, b in data["champions"].items():
 	y.append(b)
 
 plt.style.use('ggplot')
+plt.figure(1, figsize=(9, 20))
 plt.barh(x, y, color='purple')
 plt.xlabel("# of Games Played")
 plt.ylabel("Champion Name")
