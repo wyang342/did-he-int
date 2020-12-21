@@ -16,6 +16,7 @@ responseFromSummonerName = requests.get(getSummonerByName)
 dataFromSummonerName = responseFromSummonerName.json()
 accountID = dataFromSummonerName['accountId']
 
+# Initializing data to be collected
 data = {"champions": {}, "queueType": {}, "roleType": {}}
 
 # Looping through to get all matches
@@ -46,14 +47,13 @@ for startIndex in range(0, 501, 100):
 # Plotting champions
 x = []
 y = []
-for a,b in enumerate(data["champions"]):
-	x.append(b)
-	y.append(a)
+for a, b in data["champions"].items():
+	x.append(a)
+	y.append(b)
 
 plt.style.use('ggplot')
 plt.bar(x, y, color='purple')
 plt.xlabel("Champion ID")
 plt.ylabel("Number of Times Played")
 plt.title("Number of times champ was played")
-# plt.xticks(x_pos, x)
 plt.show()
