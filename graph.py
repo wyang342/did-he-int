@@ -27,7 +27,7 @@ for startIndex in range(0, 501, 100):
 	getMatchList = baseUrl + "/lol/match/v4/matchlists/by-account/" + accountID + beginIndex + apiKeyAnd
 	responseFromMatchList = requests.get(getMatchList)
 	matchList = responseFromMatchList.json()
-	matches = matchList['matches'] # list of match dictionaries
+	matches = matchList['matches']  # list of match dictionaries
 	for matchDict in matches:
 		champion = str(matchDict["champion"])
 		championName = champions.champions_inverted[champion]
@@ -47,15 +47,21 @@ for startIndex in range(0, 501, 100):
 			data["roleType"][role] += 1
 
 # Plotting champion data
-x = []
-y = []
+champ_name = []
+num_played = []
 for a, b in data["champions"].items():
-	x.append(a)
-	y.append(b)
+	champ_name.append(a)
+	num_played.append(b)
 
+# Listing Champions in Alphabetical order
+zipped_list = zip(champ_name, num_played)
+sorted_zipped_list = sorted(zipped_list)
+sorted_zipped_list.reverse()
+
+sorted_list = [[i for i, j in sorted_zipped_list], [j for i, j in sorted_zipped_list]]
 plt.style.use('ggplot')
 plt.figure(1, figsize=(9, 20))
-plt.barh(x, y, color='purple')
+plt.barh(sorted_list[0], sorted_list[1], color='blue')
 plt.xlabel("# of Games Played")
 plt.ylabel("Champion Name")
 plt.title("# of Times Each Champion was Played")
