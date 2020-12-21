@@ -44,7 +44,7 @@ for startIndex in range(0, 501, 100):
 		else:
 			data["roleType"][role] += 1
 
-# Plotting champions
+# Plotting champion data
 x = []
 y = []
 for a, b in data["champions"].items():
