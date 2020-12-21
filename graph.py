@@ -10,7 +10,7 @@ apiKeyAnd = "&api_key=" + api_key
 
 # URLS
 baseUrl = "https://na1.api.riotgames.com"
-getSummonerByName = baseUrl + "/lol/summoner/v4/summoners/by-name/hyeonipus" + apiKeyQuestion
+getSummonerByName = baseUrl + "/lol/summoner/v4/summoners/by-name/jyuan16" + apiKeyQuestion
 
 # Getting accountID from summoner name
 responseFromSummonerName = requests.get(getSummonerByName)
@@ -21,13 +21,20 @@ accountID = dataFromSummonerName['accountId']
 data = {"champions": {}, "queueType": {}, "roleType": {}}
 
 # Looping through to get all matches
-for startIndex in range(0, 501, 100):
+startIndex = 0
+while True:
 	beginIndex = "?beginIndex=" + str(startIndex)
 	# Getting MatchList from AccountID
 	getMatchList = baseUrl + "/lol/match/v4/matchlists/by-account/" + accountID + beginIndex + apiKeyAnd
 	responseFromMatchList = requests.get(getMatchList)
 	matchList = responseFromMatchList.json()
-	matches = matchList['matches']  # list of match dictionaries
+	try:
+		matches = matchList['matches']  # list of match dictionaries
+	except:
+		print("Can't Retrieve Data")
+		break;
+	if not matches:
+		break;
 	for matchDict in matches:
 		champion = str(matchDict["champion"])
 		championName = champions.champions_inverted[champion]
@@ -45,6 +52,7 @@ for startIndex in range(0, 501, 100):
 			data["roleType"][role] = 1
 		else:
 			data["roleType"][role] += 1
+	startIndex += 100;
 
 # Plotting champion data
 champ_name = []
@@ -66,3 +74,6 @@ plt.xlabel("# of Games Played")
 plt.ylabel("Champion Name")
 plt.title("# of Times Each Champion was Played")
 plt.show()
+
+
+print("done")
