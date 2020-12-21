@@ -1,4 +1,5 @@
 import requests
+import matplotlib.pyplot as plt
 
 # Getting API key
 handle = open("api-key.txt", "r")
@@ -42,4 +43,17 @@ for startIndex in range(0, 501, 100):
 		else:
 			data["roleType"][role] += 1
 
-print(data)
+# Plotting champions
+x = []
+y = []
+for a,b in enumerate(data["champions"]):
+	x.append(b)
+	y.append(a)
+
+plt.style.use('ggplot')
+plt.bar(x, y, color='purple')
+plt.xlabel("Champion ID")
+plt.ylabel("Number of Times Played")
+plt.title("Number of times champ was played")
+# plt.xticks(x_pos, x)
+plt.show()
