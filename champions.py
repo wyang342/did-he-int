@@ -7,8 +7,7 @@ championsDict = json['data']
 champions = {}
 
 for champion, info in championsDict.items():
-	print(champion)
 	if not champion in champions:
+		champions[champion] = championsDict[champion]['key']
 
-
-
+champions_inverted = {v: k for k, v in champions.items()}

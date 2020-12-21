@@ -2,3 +2,4 @@
 .idea/
 api-key.txt
 stuff.txt
+__pycache__/

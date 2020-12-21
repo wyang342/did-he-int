@@ -1,5 +1,6 @@
 import requests
 import matplotlib.pyplot as plt
+import champions
 
 # Getting API key
 handle = open("api-key.txt", "r")
@@ -26,13 +27,14 @@ for startIndex in range(0, 501, 100):
 	getMatchList = baseUrl + "/lol/match/v4/matchlists/by-account/" + accountID + beginIndex + apiKeyAnd
 	responseFromMatchList = requests.get(getMatchList)
 	matchList = responseFromMatchList.json()
-	matches = matchList['matches']
+	matches = matchList['matches'] # list of match dictionaries
 	for matchDict in matches:
-		champion = matchDict["champion"]
-		if not champion in data["champions"]:
-			data["champions"][champion] = 1
-		else:
-			data["champions"][champion] += 1
+		champion = str(matchDict["champion"])
+		championName = champions.champions_inverted[champion]
+		if not championName in data["champions"]:
+			data["champions"][championName] = 1
+		elif championName in data['champions']:
+			data["champions"][championName] += 1
 		queue = matchDict["queue"]
 		if not queue in data["queueType"]:
 			data["queueType"][queue] = 1
@@ -52,8 +54,8 @@ for a, b in data["champions"].items():
 	y.append(b)
 
 plt.style.use('ggplot')
-plt.bar(x, y, color='purple')
-plt.xlabel("Champion ID")
-plt.ylabel("Number of Times Played")
-plt.title("Number of times champ was played")
+plt.barh(x, y, color='purple')
+plt.xlabel("# of Games Played")
+plt.ylabel("Champion Name")
+plt.title("# of Times Each Champion was Played")
 plt.show()
