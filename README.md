@@ -1,6 +1,6 @@
 # Favorite LoL Champions
 ## Introduction
-Ever wondered how many games you or your friends have played on each champion? This Python application will graph how many games a summoner has played on each champion. The champions are on the y-axis and the number of games played on that champion are on the x-axis.
+Ever wondered how many games you or your friends have played on each champion? This Python application will graph that for you. The champions are on the y-axis and the number of games played on that champion are on the x-axis.
 
 ## Screenshots
 ![GUI Prompting User to Enter Summoner Name](https://i.postimg.cc/hvLsT8BL/GUI-example.png)
