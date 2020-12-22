@@ -8,7 +8,8 @@ Ever wondered how many games you or your friends have played on each champion? T
 ![Graph of the Number of Times Each Champion Was Played](https://i.postimg.cc/RVf5p2Md/acofspads.png)
 
 ## Link to .exe and .app files
-Click [here](https://drive.google.com/drive/folders/18vubIYN9MzHeKpEAxW0M99NaDnonVuCe?usp=sharing).
+[.exe file (Windows)](https://drive.google.com/file/d/1IK2Yn6Lgaq9Ozs2Pd_zNnMapN0oywPw4/view?usp=sharing)
+[.app file (MacOS)](https://drive.google.com/drive/folders/1YTI2FNBYyIplQ4Vw0k1qnvJ3qCPYHVhE?usp=sharing)
 
 ## Technologies Used
 This app gets data from Riot's API and then plots it using Matplotlib. It also uses tkinter for the GUI that users can input summoner names into. Finally, it uses PyInstaller to package the app into .exe and .app files.
