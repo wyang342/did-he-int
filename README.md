@@ -9,6 +9,7 @@ Ever wondered how many games you or your friends have played on each champion? T
 
 ## Link to .exe and .app files
 [.exe file (Windows)](https://drive.google.com/file/d/1IK2Yn6Lgaq9Ozs2Pd_zNnMapN0oywPw4/view?usp=sharing)
+
 [.app file (MacOS)](https://drive.google.com/drive/folders/1YTI2FNBYyIplQ4Vw0k1qnvJ3qCPYHVhE?usp=sharing)
 
 ## Technologies Used
