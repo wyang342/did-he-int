@@ -1,6 +1,6 @@
 # Favorite LoL Champions
 ## Introduction
-Ever wondered how many games you or your friends have played on each champion? This Python application will graph that for you. The champions are on the y-axis and the number of games played on that champion are on the x-axis.
+Ever wondered how many games you or your friends have played on each champion? This Python application will graph that for you. Just create a .txt file called api-key.txt, which contains your Riot Games API key, in the same directory as all of the .py files. Then, run gui.py to see the names of champions graphed on the y-axis and the number of games played on that champion on the x-axis. You can also download the .exe and .app files below, too.
 
 ## Screenshots
 ![GUI Prompting User to Enter Summoner Name](https://i.postimg.cc/hvLsT8BL/GUI-example.png)
